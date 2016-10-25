@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "70159532760",
+    "firebase_url": "https://task-view.firebaseio.com",
+    "project_id": "task-view",
+    "storage_bucket": "task-view.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:70159532760:android:fdc023776d39b6e7",
+        "android_client_info": {
+          "package_name": "com.tektonlabs.taskview"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "70159532760-04lm4lhvo7up67gqi2muudi2pr00b53q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCR_-EvzeNTSvPktkyu2z8JASOHKMv997U"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
