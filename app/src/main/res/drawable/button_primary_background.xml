@@ -5,13 +5,13 @@
             <item>
                 <shape>
                     <solid android:color="@color/colorWhite" />
-                    <corners android:radius="@dimen/default_2_10" />
+                    <corners android:radius="@dimen/default_1_5" />
                 </shape>
             </item>
             <item>
                 <shape>
                     <solid android:color="@color/ripple" />
-                    <corners android:radius="@dimen/default_2_10" />
+                    <corners android:radius="@dimen/default_1_5" />
                 </shape>
             </item>
         </layer-list>
@@ -19,7 +19,7 @@
     <item android:state_selected="true">
         <shape>
             <solid android:color="@color/colorWhite" />
-            <corners android:radius="@dimen/default_2_10" />
+            <corners android:radius="@dimen/default_1_5" />
         </shape>
     </item>
     <item android:state_pressed="true">
@@ -27,13 +27,13 @@
             <item>
                 <shape>
                     <solid android:color="@color/colorAccent" />
-                    <corners android:radius="@dimen/default_2_10" />
+                    <corners android:radius="@dimen/default_1_5" />
                 </shape>
             </item>
             <item>
                 <shape>
                     <solid android:color="@color/ripple" />
-                    <corners android:radius="@dimen/default_2_10" />
+                    <corners android:radius="@dimen/default_1_5" />
                 </shape>
             </item>
         </layer-list>
@@ -41,13 +41,13 @@
     <item android:state_enabled="false">
         <shape>
             <solid android:color="@color/colorGray" />
-            <corners android:radius="@dimen/default_2_10" />
+            <corners android:radius="@dimen/default_1_5" />
         </shape>
     </item>
     <item>
         <shape>
             <solid android:color="@color/colorAccent" />
-            <corners android:radius="@dimen/default_2_10" />
+            <corners android:radius="@dimen/default_1_5" />
         </shape>
     </item>
 </selector>
