@@ -1,0 +1,15 @@
+<resources>
+
+    <dimen name="default_1_1">1dp</dimen>
+    <dimen name="default_1_10">10dp</dimen>
+    <dimen name="default_2_10">20dp</dimen>
+    <dimen name="default_3_10">30dp</dimen>
+    <dimen name="default_4_10">40dp</dimen>
+    <dimen name="default_5_10">50dp</dimen>
+    <dimen name="default_6_10">60dp</dimen>
+    <dimen name="default_7_10">70dp</dimen>
+    <dimen name="default_8_10">80dp</dimen>
+    <dimen name="default_9_10">90dp</dimen>
+    <dimen name="default_10_10">100dp</dimen>
+
+</resources>
