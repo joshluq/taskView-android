@@ -96,8 +96,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/default_4_10"
             android:layout_marginTop="@dimen/default_1_10"
-            android:orientation="vertical"
-            android:paddingBottom="@dimen/default_3_5">
+            android:orientation="vertical">
 
             <Button
                 android:id="@+id/btn_create"
@@ -105,6 +104,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
+                android:layout_margin="@dimen/default_1_10"
                 android:text="@string/str_create_account" />
         </LinearLayout>
     </LinearLayout>

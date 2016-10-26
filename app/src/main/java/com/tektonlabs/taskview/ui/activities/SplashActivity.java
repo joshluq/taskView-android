@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.tektonlabs.taskview.R;
+import com.tektonlabs.taskview.managers.PreferencesManager;
 
 public class SplashActivity extends AppCompatActivity {
     private static final int SPLASH_TIME_OUT = 2000;
@@ -23,10 +24,13 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     private void startApplication(){
-//        TODO: validate if user is logged
         Intent intent;
-        intent = new Intent(this, SignInActivity.class);
+        if (PreferencesManager.getInstance(this).getPreferenceUser().isEmpty()) {
+            intent = new Intent(this, SignInActivity.class);
+        }else{
+            intent = new Intent(this, ProjectsActivity.class);
+        }
         startActivity(intent);
-
+        finish();
     }
 }

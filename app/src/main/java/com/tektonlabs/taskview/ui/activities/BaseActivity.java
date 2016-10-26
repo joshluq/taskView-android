@@ -1,5 +1,6 @@
 package com.tektonlabs.taskview.ui.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -9,20 +10,17 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.tektonlabs.taskview.managers.FirebaseManager;
 
-/**
- * Created by JoshAndre on 25/10/2016.
- */
 public class BaseActivity extends AppCompatActivity {
     protected FirebaseManager firebaseManager;
     protected FirebaseAuth.AuthStateListener authListener;
     protected FirebaseAuth auth;
 
-    private final String TAG = BaseActivity.class.getName();
+    private final String TAG = BaseActivity.class.getSimpleName();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        firebaseManager = new FirebaseManager();
+        firebaseManager = new FirebaseManager(this);
         auth = FirebaseAuth.getInstance();
         authListener();
     }
@@ -35,6 +33,7 @@ public class BaseActivity extends AppCompatActivity {
                 if (user != null) {
                     // User is signed in
                     Log.e(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
+//                    startActivity(new Intent(getApplicationContext(),ProjectsActivity.class));
                 } else {
                     // User is signed out
                     Log.e(TAG, "onAuthStateChanged:signed_out");
