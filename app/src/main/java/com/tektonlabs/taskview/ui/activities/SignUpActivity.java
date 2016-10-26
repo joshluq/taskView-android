@@ -18,11 +18,10 @@ import com.mobsandgeeks.saripaar.ValidationError;
 import com.mobsandgeeks.saripaar.Validator;
 import com.mobsandgeeks.saripaar.annotation.Email;
 import com.mobsandgeeks.saripaar.annotation.NotEmpty;
+import com.mobsandgeeks.saripaar.annotation.Password;
 import com.tektonlabs.taskview.R;
 import com.tektonlabs.taskview.managers.FirebaseManager;
-import com.tektonlabs.taskview.managers.PreferencesManager;
 import com.tektonlabs.taskview.models.User;
-import com.tektonlabs.taskview.utils.Constants;
 import com.tektonlabs.taskview.utils.UIHelper;
 
 import java.util.List;
@@ -33,7 +32,7 @@ import butterknife.OnClick;
 
 public class SignUpActivity extends AppCompatActivity {
 
-    private final String TAG = BaseActivity.class.getSimpleName();
+    private final String TAG = SignUpActivity.class.getSimpleName();
 
     @NotEmpty
     @BindView(R.id.et_username)
@@ -44,7 +43,7 @@ public class SignUpActivity extends AppCompatActivity {
     @BindView(R.id.et_email)
     TextView et_email;
 
-    @NotEmpty
+    @Password(min = 6)
     @BindView(R.id.et_password)
     TextView et_password;
 
@@ -55,7 +54,6 @@ public class SignUpActivity extends AppCompatActivity {
     View v_progress;
 
     private Validator validator;
-    private PreferencesManager preferencesManager;
     private FirebaseManager firebaseManager;
     private FirebaseAuth.AuthStateListener authListener;
     private FirebaseAuth auth;
@@ -71,7 +69,6 @@ public class SignUpActivity extends AppCompatActivity {
         authListener();
         ButterKnife.bind(this);
         validator = new Validator(this);
-        preferencesManager = PreferencesManager.getInstance(this);
         validateField();
 
     }
@@ -102,7 +99,6 @@ public class SignUpActivity extends AppCompatActivity {
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        UIHelper.showProgress(SignUpActivity.this,v_progress,ll_sign_up_fields,false);
                         if (!task.isSuccessful()) {
                             Toast.makeText(SignUpActivity.this, "Create Account failed.", Toast.LENGTH_SHORT).show();
                         }else{
@@ -120,12 +116,11 @@ public class SignUpActivity extends AppCompatActivity {
         public void onSuccess() {
             if(flag){
                 flag=false;
-                startActivity(new Intent(SignUpActivity.this, ProjectsActivity.class));
                 UIHelper.showProgress(SignUpActivity.this,v_progress,ll_sign_up_fields,false);
+                startActivity(new Intent(SignUpActivity.this, ProjectsActivity.class));
                 finish();
             }
         }
-
         @Override
         public void onError() {
 

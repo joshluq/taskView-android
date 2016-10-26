@@ -4,6 +4,10 @@
     <dimen name="default_1_5">5dp</dimen>
     <dimen name="default_3_5">15dp</dimen>
     <dimen name="default_5_5">25dp</dimen>
+    <dimen name="default_1_4">4dp</dimen>
+    <dimen name="default_2_4">8dp</dimen>
+    <dimen name="default_3_4">12dp</dimen>
+    <dimen name="default_4_4">16dp</dimen>
     <dimen name="default_1_10">10dp</dimen>
     <dimen name="default_2_10">20dp</dimen>
     <dimen name="default_3_10">30dp</dimen>
