@@ -91,7 +91,6 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentTop="true"
-                android:layout_toEndOf="@+id/btn_sign_up"
                 android:layout_gravity="center_horizontal"
                 android:drawablePadding="@dimen/default_1_10"
                 android:text="@string/str_forgot_password" />

@@ -1,5 +1,6 @@
 package com.tektonlabs.taskview.ui.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -37,7 +38,9 @@ public class BaseActivity extends AppCompatActivity {
                     // User is signed in
                     Log.e(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
                 } else {
-                    // User is signed out
+                    preferencesManager.logOut();
+                    startActivity(new Intent(getApplicationContext(),SplashActivity.class));
+                    finish();
                     Log.e(TAG, "onAuthStateChanged:signed_out");
                 }
             }
