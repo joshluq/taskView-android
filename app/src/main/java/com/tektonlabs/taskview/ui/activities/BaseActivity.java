@@ -9,20 +9,24 @@ import android.util.Log;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.tektonlabs.taskview.managers.FirebaseManager;
+import com.tektonlabs.taskview.managers.PreferencesManager;
 
 public class BaseActivity extends AppCompatActivity {
     protected FirebaseManager firebaseManager;
     protected FirebaseAuth.AuthStateListener authListener;
     protected FirebaseAuth auth;
+    protected PreferencesManager preferencesManager;
 
     private final String TAG = BaseActivity.class.getSimpleName();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        preferencesManager = PreferencesManager.getInstance(this);
         firebaseManager = new FirebaseManager(this);
         auth = FirebaseAuth.getInstance();
         authListener();
+
     }
 
     private void authListener(){
@@ -33,9 +37,10 @@ public class BaseActivity extends AppCompatActivity {
                 if (user != null) {
                     // User is signed in
                     Log.e(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
-//                    startActivity(new Intent(getApplicationContext(),ProjectsActivity.class));
                 } else {
-                    // User is signed out
+                    preferencesManager.logOut();
+                    startActivity(new Intent(getApplicationContext(),SplashActivity.class));
+                    finish();
                     Log.e(TAG, "onAuthStateChanged:signed_out");
                 }
             }
@@ -55,4 +60,6 @@ public class BaseActivity extends AppCompatActivity {
             auth.removeAuthStateListener(authListener);
         }
     }
+
+
 }

@@ -7,4 +7,9 @@
     <string name="str_sign_up">Sign Up</string>
     <string name="str_username">Username</string>
     <string name="str_create_account">Create Account</string>
+    <string name="str_sign_out">Sign Out</string>
+    <string name="str_project_name">Project name</string>
+    <string name="str_project_description">Project description</string>
+    <string name="str_cancel">Cancel</string>
+    <string name="str_done">Done</string>
 </resources>

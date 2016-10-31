@@ -16,12 +16,18 @@ import com.tektonlabs.taskview.utils.FirebaseConstants;
 public class FirebaseManager {
     private FirebaseUser firebaseUser;
     private DatabaseReference usersReference;
+    private DatabaseReference projectsReference;
     private PreferencesManager preferencesManager;
 
     public FirebaseManager(Context context) {
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         preferencesManager = PreferencesManager.getInstance(context);
         usersReference = FirebaseDatabase.getInstance().getReference(FirebaseConstants.REF_DATA).child(FirebaseConstants.CHILD_USERS);
+        projectsReference = FirebaseDatabase.getInstance().getReference(FirebaseConstants.REF_DATA).child(FirebaseConstants.CHILD_PROJECTS);
+    }
+
+    public DatabaseReference getProjectsReference() {
+        return projectsReference;
     }
 
     public DatabaseReference getUsersReference() {
@@ -34,9 +40,8 @@ public class FirebaseManager {
         }
     }
 
-
     //Firebase Event Listeners
-    ValueEventListener userValueEventListener = new ValueEventListener() {
+    private ValueEventListener userValueEventListener = new ValueEventListener() {
         @Override
         public void onDataChange(DataSnapshot dataSnapshot) {
             User user = dataSnapshot.getValue(User.class);
