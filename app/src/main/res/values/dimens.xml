@@ -27,5 +27,6 @@
 
     <!--Text Size-->
     <dimen name="default_3_5_sp">15sp</dimen>
+    <dimen name="default_5_5_sp">25sp</dimen>
 
 </resources>

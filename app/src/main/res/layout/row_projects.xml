@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:divider="@drawable/divider"
+    android:orientation="vertical"
+    android:showDividers="end">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/default_1_10"
+        android:layout_marginStart="@dimen/default_1_10"
+        android:divider="@drawable/divider"
+        android:orientation="horizontal"
+        android:showDividers="middle"
+        android:gravity="center_vertical"
+        tools:ignore="UselessParent">
+        <LinearLayout
+            android:id="@+id/ly_icon_availability"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/dot_green"
+            android:layout_marginStart="@dimen/default_2_10"
+            android:layout_marginEnd="@dimen/default_1_10" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/default_1_10"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/default_1_10"
+            android:paddingTop="@dimen/default_1_10">
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Project Title"
+                android:textSize="@dimen/default_5_5_sp"
+                tools:ignore="HardcodedText" />
+            <TextView
+                android:id="@+id/tv_description"
+                style="@style/Base.TextAppearance.AppCompat.Large"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/default_1_10"
+                android:text="Project Description"
+                android:textSize="@dimen/default_3_5_sp"
+                android:layout_marginBottom="@dimen/default_1_5"
+                android:layout_marginStart="@dimen/default_1_5"
+                tools:ignore="HardcodedText" />
+            <TextView
+                android:id="@+id/tv_owner"
+                style="@style/Base.TextAppearance.AppCompat.Large"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/default_1_10"
+                android:text="Project owner"
+                android:textSize="@dimen/default_3_5_sp"
+                android:layout_marginStart="@dimen/default_1_5"
+                tools:ignore="HardcodedText" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
