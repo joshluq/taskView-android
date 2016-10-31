@@ -68,7 +68,7 @@ public class ProjectsActivity extends BaseActivity {
 
     private void setupAdapter(){
         rv_messages.setLayoutManager(new LinearLayoutManager(this));
-        projectAdapter = new ProjectAdapter(firebaseManager.getProjectsReference());
+        projectAdapter = new ProjectAdapter(this,firebaseManager.getProjectsReference());
         rv_messages.setAdapter(projectAdapter);
     }
 
