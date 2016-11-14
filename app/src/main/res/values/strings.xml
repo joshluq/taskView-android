@@ -12,4 +12,16 @@
     <string name="str_project_description">Project description</string>
     <string name="str_cancel">Cancel</string>
     <string name="str_done">Done</string>
+    <string name="str_backlog">Backlog</string>
+    <string name="str_todo">To Do</string>
+    <string name="str_wip">Wip</string>
+    <string name="str_code_review">Code Review</string>
+    <string name="str_accepted">Accepted</string>
+    <string name="str_task_title">Task Title</string>
+    <string name="str_task_description">Task Description</string>
+    <string name="str_responsible">Responsible</string>
+    <string name="str_time">Time</string>
+    <string name="str_add_task">Add Task</string>
+    <string name="str_search_user">Search User</string>
+    <string name="str_search">Search</string>
 </resources>

@@ -27,7 +27,7 @@ import butterknife.OnClick;
 public class ProjectsActivity extends BaseActivity {
 
     @BindView(R.id.rv_projects)
-    RecyclerView rv_messages;
+    RecyclerView rv_projects;
 
     private User currentUser;
     private Dialog newProjectDialog;
@@ -67,9 +67,9 @@ public class ProjectsActivity extends BaseActivity {
     }
 
     private void setupAdapter(){
-        rv_messages.setLayoutManager(new LinearLayoutManager(this));
+        rv_projects.setLayoutManager(new LinearLayoutManager(this));
         projectAdapter = new ProjectAdapter(this,firebaseManager.getProjectsReference());
-        rv_messages.setAdapter(projectAdapter);
+        rv_projects.setAdapter(projectAdapter);
     }
 
     private void newProjectDialog(){

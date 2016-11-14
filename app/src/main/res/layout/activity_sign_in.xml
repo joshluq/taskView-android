@@ -43,7 +43,7 @@
                 android:paddingLeft="@dimen/default_2_10"
                 android:paddingRight="@dimen/default_2_10"
                 android:paddingTop="@dimen/default_1_10"
-                android:singleLine="true"
+                android:maxLines="1"
                 android:text="josh.luque@test.com"
                 android:textSize="@dimen/default_3_5_sp"
                 tools:ignore="HardcodedText" />
