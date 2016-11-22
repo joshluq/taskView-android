@@ -1,15 +1,19 @@
 package com.tektonlabs.taskview.models;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-/**
- * Created by JoshAndre on 31/10/2016.
- */
 
-public class Task {
+public class Task implements Serializable {
 
     private String id;
     private String taskName;
+    private String description;
+    private int time;
+    private int status;
+    private String createdAt;
+    private String updatedAt;
+
     private ArrayList<User> users;
 
     public String getId() {
@@ -34,5 +38,45 @@ public class Task {
 
     public void setUsers(ArrayList<User> users) {
         this.users = users;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public int getTime() {
+        return time;
+    }
+
+    public void setTime(int time) {
+        this.time = time;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    public String getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public String getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(String updatedAt) {
+        this.updatedAt = updatedAt;
     }
 }

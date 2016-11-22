@@ -32,12 +32,41 @@
             android:padding="12dp">
 
             <TextView
-                android:id="@+id/text"
+                android:id="@+id/title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="title"
+                android:text="Title"
                 android:textSize="@dimen/default_4_5_sp"
                 tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/responsible"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="User 1"
+                android:textSize="@dimen/default_3_5_sp"
+                tools:ignore="HardcodedText" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Time: "
+                    android:layout_marginEnd="@dimen/default_1_10"
+                    android:textSize="@dimen/default_3_5_sp"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:id="@+id/time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="5 horas"
+                    android:textSize="@dimen/default_3_5_sp"
+                    tools:ignore="HardcodedText" />
+            </LinearLayout>
 
 
 

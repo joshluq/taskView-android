@@ -24,4 +24,5 @@
     <string name="str_add_task">Add Task</string>
     <string name="str_search_user">Search User</string>
     <string name="str_search">Search</string>
+    <string name="str_hours">Hours</string>
 </resources>

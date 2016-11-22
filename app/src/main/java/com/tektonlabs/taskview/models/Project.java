@@ -1,14 +1,14 @@
 package com.tektonlabs.taskview.models;
 
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Project {
+public class Project implements Serializable{
 
     private String id;
     private String projectName;
     private String description;
-    private ArrayList<Task> tasks;
     private User owner;
 
     public Project() {
@@ -38,13 +38,6 @@ public class Project {
         this.description = description;
     }
 
-    public ArrayList<Task> getTasks() {
-        return tasks;
-    }
-
-    public void setTasks(ArrayList<Task> tasks) {
-        this.tasks = tasks;
-    }
 
     public User getOwner() {
         return owner;

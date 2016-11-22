@@ -9,13 +9,11 @@ import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.Query;
-import com.google.gson.Gson;
 import com.tektonlabs.taskview.R;
-import com.tektonlabs.taskview.managers.PreferencesManager;
 import com.tektonlabs.taskview.models.Project;
 import com.tektonlabs.taskview.models.User;
 import com.tektonlabs.taskview.ui.activities.BoardActivity;
-
+import com.tektonlabs.taskview.utils.Constants;
 
 public class ProjectAdapter  extends FirebaseRecyclerAdapter<Project, ProjectAdapter.ProjectHolder> {
 
@@ -24,12 +22,11 @@ public class ProjectAdapter  extends FirebaseRecyclerAdapter<Project, ProjectAda
 
     public ProjectAdapter(Context context, Query ref) {
         super(Project.class,R.layout.row_projects, ProjectHolder.class, ref);
-        currentUser = new Gson().fromJson(PreferencesManager.getInstance(context).getPreferenceUser(),User.class);
         this.context = context;
     }
 
     @Override
-    protected void populateViewHolder(ProjectHolder viewHolder, Project model, int position) {
+    protected void populateViewHolder(ProjectHolder viewHolder, final Project model, final int position) {
 
             viewHolder.tv_title.setText(model.getProjectName());
             viewHolder.tv_description.setText(model.getDescription());
@@ -38,6 +35,8 @@ public class ProjectAdapter  extends FirebaseRecyclerAdapter<Project, ProjectAda
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(context, BoardActivity.class);
+                    model.setId(getRef(position).getKey());
+                    intent.putExtra(Constants.EXTRA_PROJECT,model);
                     context.startActivity(intent);
                 }
             });

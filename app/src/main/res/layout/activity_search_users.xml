@@ -41,7 +41,8 @@
             android:id="@+id/btn_search"
             android:src="@drawable/ic_search"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            tools:ignore="ContentDescription" />
     </LinearLayout>
 
     <android.support.v7.widget.RecyclerView

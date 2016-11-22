@@ -34,6 +34,7 @@ public class FirebaseManager {
         return usersReference;
     }
 
+
     public void getUserInfo(){
         if (firebaseUser!=null){
             usersReference.child(firebaseUser.getUid()).addValueEventListener(userValueEventListener);
