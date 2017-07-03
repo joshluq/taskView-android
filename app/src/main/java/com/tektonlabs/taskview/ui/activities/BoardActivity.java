@@ -114,7 +114,7 @@ public class BoardActivity extends BaseActivity {
                                 break;
                             case Constants.STATUS_DONE:
                                 doneList.get(toRow).second.setStatus(Constants.STATUS_DONE);
-                                backlogList.get(toRow).second.setUpdatedAt(UIHelper.now());
+                                doneList.get(toRow).second.setUpdatedAt(UIHelper.now());
                                 firebaseManager.getProjectsReference().child(project.getId()).child(FirebaseConstants.CHILD_TASKS).child(doneList.get(toRow).second.getId()).setValue(doneList.get(toRow).second);
                                 doneList.remove(toRow);
                                 doneAdapter.setItemList(doneList);

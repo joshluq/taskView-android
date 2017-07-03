@@ -113,13 +113,13 @@ public class AddTaskActivity extends BaseActivity {
                     AddTaskActivity.this.setResult(Activity.RESULT_OK,returnIntent);
                     AddTaskActivity.this.finish();
                 }else{
-                    Toast.makeText(AddTaskActivity.this,"The number must be greater than zero", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddTaskActivity.this,"El numero tiene que se mayor a cero", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onValidationFailed(List<ValidationError> errors) {
-                Toast.makeText(AddTaskActivity.this,"please complete all required fields", Toast.LENGTH_SHORT).show();
+                Toast.makeText(AddTaskActivity.this,"Por favor el complete todos los campos", Toast.LENGTH_SHORT).show();
             }
         };
         validator.setValidationListener(validationListener);

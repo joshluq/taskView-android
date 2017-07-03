@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,16 +35,16 @@ public class SignUpActivity extends AppCompatActivity {
 
     private final String TAG = SignUpActivity.class.getSimpleName();
 
-    @NotEmpty
+    @NotEmpty(message = "Complete el campo")
     @BindView(R.id.et_username)
     TextView et_username;
 
-    @NotEmpty
+    @NotEmpty(message = "Complete el campo")
     @Email
     @BindView(R.id.et_email)
     TextView et_email;
 
-    @Password(min = 6)
+    @Password
     @BindView(R.id.et_password)
     TextView et_password;
 
@@ -78,7 +79,7 @@ public class SignUpActivity extends AppCompatActivity {
         validator.validate();
     }
 
-    private void validateField(){
+    private void validateField() {
         Validator.ValidationListener validationListener = new Validator.ValidationListener() {
             @Override
             public void onValidationSucceeded() {
@@ -87,22 +88,31 @@ public class SignUpActivity extends AppCompatActivity {
 
             @Override
             public void onValidationFailed(List<ValidationError> errors) {
-//            TODO: Implement errors
+                for (ValidationError error : errors) {
+                    View view = error.getView();
+                    String message = error.getCollatedErrorMessage(SignUpActivity.this);
+
+                    if (view instanceof EditText) {
+                        ((EditText) view).setError(message);
+                    } else {
+                        Toast.makeText(SignUpActivity.this, message, Toast.LENGTH_LONG).show();
+                    }
+                }
             }
         };
         validator.setValidationListener(validationListener);
     }
 
     private void createAccount() {
-        UIHelper.showProgress(SignUpActivity.this,v_progress,ll_sign_up_fields,true);
+        UIHelper.showProgress(SignUpActivity.this, v_progress, ll_sign_up_fields, true);
         auth.createUserWithEmailAndPassword(et_email.getText().toString(), et_password.getText().toString())
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (!task.isSuccessful()) {
                             Toast.makeText(SignUpActivity.this, "Create Account failed.", Toast.LENGTH_SHORT).show();
-                        }else{
-                            if(firebaseManager.getFirebaseUser() != null){
+                        } else {
+                            if (firebaseManager.getFirebaseUser() != null) {
                                 firebaseManager.setOnSingleValueEventListener(singleValueEventListener);
                                 firebaseManager.getUserInfo();
                             }
@@ -114,20 +124,21 @@ public class SignUpActivity extends AppCompatActivity {
     FirebaseManager.OnSingleValueEventListener singleValueEventListener = new FirebaseManager.OnSingleValueEventListener() {
         @Override
         public void onSuccess() {
-            if(flag){
-                flag=false;
-                UIHelper.showProgress(SignUpActivity.this,v_progress,ll_sign_up_fields,false);
+            if (flag) {
+                flag = false;
+                UIHelper.showProgress(SignUpActivity.this, v_progress, ll_sign_up_fields, false);
                 startActivity(new Intent(SignUpActivity.this, ProjectsActivity.class));
                 finish();
             }
         }
+
         @Override
         public void onError() {
 
         }
     };
 
-    private void authListener(){
+    private void authListener() {
         authListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
@@ -136,7 +147,7 @@ public class SignUpActivity extends AppCompatActivity {
                     // User is signed in
                     Log.e(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
                     firebaseManager.setFirebaseUser(user);
-                    firebaseManager.getUsersReference().child(user.getUid()).setValue(new User(user.getUid(),et_username.getText().toString()));
+                    firebaseManager.getUsersReference().child(user.getUid()).setValue(new User(user.getUid(), et_username.getText().toString()));
                 } else {
                     // User is signed out
                     Log.e(TAG, "onAuthStateChanged:signed_out");

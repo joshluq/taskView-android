@@ -52,7 +52,7 @@ public class TaskAdapter extends DragItemAdapter<Pair<Long, Task>, TaskAdapter.V
         final int position = holder.getAdapterPosition();
         task =  mItemList.get(position).second;
         String title = task.getTaskName();
-        String time = task.getTime()+ " Hours";
+        String time = task.getTime()+ " Esfuerzo";
         String responsible = task.getUsers().get(0).getUsername();
         holder.itemView.setTag(title);
         holder.title.setText(title);

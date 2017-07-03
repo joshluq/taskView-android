@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,12 +34,12 @@ public class SignInActivity  extends AppCompatActivity {
 
     private final String TAG = SignInActivity.class.getSimpleName();
 
-    @NotEmpty
-    @Email
+    @NotEmpty(message = "Complete el campo")
+    @Email(message = "email invalido")
     @BindView(R.id.et_email)
     TextView et_email;
 
-    @Password(min = 6)
+    @Password
     @BindView(R.id.et_password)
     TextView et_password;
 
@@ -86,7 +87,17 @@ public class SignInActivity  extends AppCompatActivity {
 
             @Override
             public void onValidationFailed(List<ValidationError> errors) {
-//            TODO: Implement errors
+
+                for (ValidationError error : errors) {
+                    View view = error.getView();
+                    String message = error.getCollatedErrorMessage(SignInActivity.this);
+
+                    if (view instanceof EditText) {
+                        ((EditText) view).setError(message);
+                    } else {
+                        Toast.makeText(SignInActivity.this, message, Toast.LENGTH_LONG).show();
+                    }
+                }
             }
         };
         validator.setValidationListener(validationListener);
@@ -119,7 +130,7 @@ public class SignInActivity  extends AppCompatActivity {
         }
         @Override
         public void onError() {
-
+            UIHelper.showProgress(SignInActivity.this,v_progress,ll_sign_in_fields,false);
         }
     };
 
